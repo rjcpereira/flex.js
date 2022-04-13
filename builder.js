@@ -10,12 +10,12 @@ const log = (...args) => console.log(colors.green(`[${pkg.name}]`), ...args);
 const modules = [
     'process-styles',
     'process-scripts'
-];
+].map(item => require(`./builder/${item}`));
 
-const build = gulp.series(...modules.map(item => require(`./builder/${item}`)({
+const build = gulp.series(...modules.map(item => (() => item({
     log,
     dest: 'dist'
-})));
+}))));
 
 module.exports = {
     dev: async next => {

@@ -7,7 +7,7 @@ module.exports = ({ log, dest }) => {
 
     log('processing styles');
 
-    return () => gulp.src(['styles/**/*.scss'])
+    return gulp.src(['styles/**/*.scss'])
         .pipe(sass())
         .pipe(concat(`main.css`))
         .pipe(clean())
