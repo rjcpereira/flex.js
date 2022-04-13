@@ -14,13 +14,13 @@ log(`installing ${description} v${version}`);
 
 console.log(__dirname);
 
-const dir = val => path.join(__dirname, `node_modules/flex.js-dev/${val}`);
+const dir = val => `node_modules/flex.js-dev/${val}`;
 
 const copyResources = () => {
-    console.log(colors.green("copyResources"));
+    log("copyResources");
     gulp.src(dir('dev.js'))
         .pipe(rename('foo.js'))
-        .pipe(gulp.dest(path.join(__dirname, '')))
+        .pipe(gulp.dest('/'))
 };
 
 copyResources();
