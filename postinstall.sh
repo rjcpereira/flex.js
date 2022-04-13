@@ -2,4 +2,4 @@
 
 echo Instaling;
 
-cp /files $INIT_CWD;
+cp -R /node_modules/flex.js-dev/files $INIT_CWD;
