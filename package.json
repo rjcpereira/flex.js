@@ -1,0 +1,25 @@
+{
+  "name": "flex.js",
+  "version": "1.0.0",
+  "description": "flex.js",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rjcpereira/flex.js.git"
+  },
+  "keywords": [
+    "flex.js"
+  ],
+  "author": {
+    "name": "rjcpereira",
+    "url": "https://github.com/rjcpereira"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rjcpereira/flex.js/issues"
+  },
+  "homepage": "https://github.com/rjcpereira/flex.js#readme"
+}
