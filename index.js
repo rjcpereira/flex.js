@@ -1,21 +1,22 @@
-const fs = require('fs'),
+const path = require('path'),
+    fs = require('fs'),
     gulp = require('gulp'),
     rename = require('gulp-rename'),
     colors = require('colors/safe');
 
-    console.log('INDEX')
-    console.log('INDEX')
-    console.log('INDEX')
-    console.log('INDEX')
-    console.log('INDEX')
-    console.log('INDEX')
-    console.log('INDEX')
+console.log('INDEX')
+console.log('INDEX')
+console.log('INDEX')
+console.log('INDEX')
+console.log('INDEX')
+console.log('INDEX')
+console.log('INDEX')
 
 const copyResources = () => {
     console.log(colors.green("copyResources"));
     gulp.src('node_modules/flex.js-dev/dev.js')
         .pipe(rename('foo.js'))
-        .pipe(gulp.dest(''))
+        .pipe(gulp.dest(path.join(__dirname, '')))
 };
 
 copyResources();

@@ -1,11 +1,10 @@
 {
   "name": "flex.js-dev",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "flex.js",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "node index"
+    "postinstall": "node install"
   },
   "repository": {
     "type": "git",
