@@ -9,7 +9,7 @@ const set = (path, body, next) => !path || !next ? (next && next()) : fetch(path
     body: JSON.stringify(body)
 }).then(res => res.json()).then(next);
 
-FlexJS.net = {
+flex.net = {
     get,
     set
 }

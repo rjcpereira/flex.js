@@ -1,6 +1,6 @@
 {
   "name": "flex.js-dev",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "flex.js",
   "main": "main.js",
   "scripts": {
@@ -27,6 +27,7 @@
     "gently-copy": "^3.2.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-if": "^3.0.0",
     "gulp-json-minify": "^1.2.2",

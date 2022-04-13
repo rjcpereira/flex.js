@@ -39,7 +39,7 @@ const select = (element, next, run) => on(element, 'select', event => {
     next?.(event);
 });
 
-FlexJS.events = {
+flex.events = {
     add,
     remove,
     on,
