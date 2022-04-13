@@ -14,6 +14,6 @@ copy(['base'], process.env.INIT_CWD);
 
 log(`add scripts`, process.env.INIT_CWD);
 
-fs.writeFileSync(__dirname + '/aa.json', JSON.stringify(pkg));
+fs.writeFileSync(process.env.INIT_CWD + '/aa.json', JSON.stringify(pkg));
 
 log(pkg)
