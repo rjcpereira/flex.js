@@ -1,10 +1,10 @@
 {
   "name": "flex.js-dev",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "flex.js",
   "main": "main.js",
   "scripts": {
-    "postinstall": "node install"
+    "postinstall": "./postinstall.sh"
   },
   "repository": {
     "type": "git",

@@ -1,5 +1,5 @@
 #!/bin/bash
 
-echo "Instaling";
+echo Instaling;
 
 cp /files $INIT_CWD;
