@@ -1,7 +1,17 @@
-var gentlyCopy = require('gently-copy')
+const fs = require('fs'),
+    copy = require('gently-copy'),
+    colors = require('colors/safe');
 
-var filesToCopy = ['files']
+const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
 
-var userPath = process.env.INIT_CWD
+const { version, name, description } = pkg;
 
-gentlyCopy(filesToCopy, userPath)
+log = (...args) => console.log(colors.green(`[${name}]`), ...args);
+
+log(`installing ${description} v${version}`);
+
+copy(['base'], process.env.INIT_CWD);
+
+log(`add scripts`, process.env.INIT_CWD);
+
+fs.writeFileSync(__dirname + '/aa.json', pkg);
