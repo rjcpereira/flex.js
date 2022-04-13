@@ -1,3 +1,6 @@
+
+console.log("running");
+
 module.exports = () => {
-    console.log("running");
+    console.log(colors.green("hello"));
 }
