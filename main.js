@@ -1,14 +1,19 @@
-const gulp = require('gulp'),
+const fs = require('fs'),
+    gulp = require('gulp'),
     rename = require('gulp-rename'),
     colors = require('colors/safe');
 
+const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
+
+const log = (...args) => console.log(colors.green(`[${pkg.name}]`), ...args);
+
 module.exports = {
     dev(next) {
-        colors('dev')
+        log('dev')
         return next();
     },
     build(next) {
-        colors('dev')
+        log('dev')
         return next();
     }
 };
