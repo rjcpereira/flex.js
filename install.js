@@ -2,7 +2,6 @@ const path = require('path'),
     fs = require('fs'),
     gulp = require('gulp'),
     rename = require('gulp-rename'),
-    colors = require('colors/safe'),
     colors = require('colors/safe');
 
 const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
