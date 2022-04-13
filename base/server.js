@@ -1,7 +1,3 @@
-const express = require('express');
+const flex = require('flex');
 
-const server = express();
-
-const port = 3000;
-
-server.listen(port, () => console.log(`listening on port ${port}`))
+flex.listen(3000);
