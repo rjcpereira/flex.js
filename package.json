@@ -22,7 +22,7 @@
     "url": "https://github.com/rjcpereira/flex.js/issues"
   },
   "homepage": "https://github.com/rjcpereira/flex.js#readme",
-  "devDependencies": {
+  "dependencies": {
     "colors": "^1.4.0",
     "gulp": "^4.0.2",
     "gulp-if": "^3.0.0",
