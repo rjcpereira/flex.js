@@ -14,7 +14,7 @@ const build = gulp.series(...[
     'copy-handlebars',
     'copy-assets'
 ].map(id => {
-    const task = require(`./builder/${id}`);
+    const task = require(`./${id}`);
     gulp.task(id, next => {
         log(id);
         return task({
@@ -26,7 +26,7 @@ const build = gulp.series(...[
     return id;
 }));
 
-const start = async (next, dev) => await require(`./builder/start-server`)({
+const start = async (next, dev) => await require(`./start-server`)({
     log,
     next,
     url: 'http://localhost:3000',
