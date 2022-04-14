@@ -1,8 +1,8 @@
 {
   "name": "flex.js-dev",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "flex.js",
-  "main": "main.js",
+  "main": "builder.js",
   "scripts": {
     "postinstall": "node postinstall"
   },
