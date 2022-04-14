@@ -6,8 +6,8 @@
 
 ## Build for production
 
-`gulp`
+`gulp` or `gulp build`
 
 ## Start server
 
-`node server`
+`gulp start`
