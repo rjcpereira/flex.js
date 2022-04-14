@@ -10,7 +10,8 @@ const log = (...args) => console.log(colors.green(`[${pkg.name}]`), ...args);
 const build = gulp.series(...[
     'process-styles',
     'process-scripts',
-    'process-server'
+    'process-server',
+    'copy-assets'
 ].map(id => {
     const task = require(`./builder/${id}`);
     gulp.task(id, next => {
