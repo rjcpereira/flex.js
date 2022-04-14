@@ -1,9 +1,10 @@
-const fs = require('fs'),
+const path = require('path'),
+    fs = require('fs'),
     gulp = require('gulp'),
     colors = require('colors/safe'),
     shell = require('child_process').exec;
 
-const pkg = JSON.parse(fs.readFileSync('../package.json', 'utf-8'));
+const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json'), 'utf-8'));
 
 const name = pkg.description;
 
@@ -36,7 +37,9 @@ const start = async (next, dev) => await require(`./server.start`)({
     dev
 });
 
+console.log('\n\r');
 log(`building project with ${name} v${pkg.version}`);
+console.log('\n\r');
 
 module.exports = {
     dev: async next => await build(() => start(next, true)),
