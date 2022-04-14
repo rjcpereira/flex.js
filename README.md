@@ -58,15 +58,3 @@ Create static SSR websites with reactivity on the client
 ### views
 
 > `.hbs` templates to be imported in pages and layouts
-
-
-## TODO/dont't forget
-
-`gulp-clean-css gulp-nodemon`
-
- handlebars.runtime, scripts(bundle), flex.js,
-
- ```javascript
-const data = component(obj('@', ['route', 'widgets']), ...res});
-
- ```

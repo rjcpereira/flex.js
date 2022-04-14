@@ -11,6 +11,7 @@ const build = gulp.series(...[
     'process-styles',
     'process-scripts',
     'process-server',
+    'copy-handlebars',
     'copy-assets'
 ].map(id => {
     const task = require(`./builder/${id}`);
