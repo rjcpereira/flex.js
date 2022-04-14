@@ -8,11 +8,15 @@ const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
 const log = (...args) => console.log(colors.green(`[${pkg.name}]`), ...args);
 
 const build = gulp.series(...[
-    'process-styles',
-    'process-scripts',
-    'process-server',
-    'copy-handlebars',
-    'copy-assets'
+    'styles.parse',
+    'scripts.parse',
+    'routes.parse',
+    'views.parse',
+    'api.parse',
+    'middlewares.parse',
+    'server.parse',
+    'handlebars.copy',
+    'assets.copy'
 ].map(id => {
     const task = require(`./${id}`);
     gulp.task(id, next => {
@@ -26,7 +30,7 @@ const build = gulp.series(...[
     return id;
 }));
 
-const start = async (next, dev) => await require(`./start-server`)({
+const start = async (next, dev) => await require(`./server.start`)({
     log,
     next,
     url: 'http://localhost:3000',
