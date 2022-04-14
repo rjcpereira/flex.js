@@ -1,28 +1,38 @@
 const fs = require('fs'),
     gulp = require('gulp'),
-    rename = require('gulp-rename'),
-    colors = require('colors/safe');
+    colors = require('colors/safe'),
+    shell = require('child_process').exec;
 
 const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
 
 const log = (...args) => console.log(colors.green(`[${pkg.name}]`), ...args);
 
-const modules = [
+const build = gulp.series(...[
     'process-styles',
     'process-scripts',
-    'process-server',
-    'start-server'
-].map(item => require(`./builder/${item}`));
+    'process-server'
+].map(id => {
+    const task = require(`./builder/${id}`);
+    gulp.task(id, next => {
+        log(id);
+        return task({
+            log,
+            dest: 'dist',
+            next
+        });
+    });
+    return id;
+}));
 
-const build = gulp.series(...modules.map(item => (() => item({
+const start = async (next, dev) => await require(`./builder/start-server`)({
     log,
-    dest: 'dist'
-}))));
+    next,
+    url: 'http://localhost:3000',
+    dev
+});
 
 module.exports = {
-    dev: async next => {
-        log('dev');
-        await next();
-    },
+    dev: async next => await build(() => start(next, true)),
+    start,
     build
 };

@@ -1,8 +1,12 @@
-const server = require('flex.js-dev/core/server');
+const shell = require('child_process').exec,
+    colors = require('colors/safe');
 
-module.exports = ({ log }) => {
+module.exports = ({ dev, log, url, next }) => {
 
-    log('starting server');
+    log(`starting server in ${!dev ? 'production' : 'development'} mode`, colors.brightGreen(url));
 
-    return server.listen();
+    return shell(`node${!dev ? '' : 'mon'} dist/server`, err => {
+        log(colors.red('ERROR'), err);
+        next();
+    });
 }
