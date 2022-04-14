@@ -1,6 +1,6 @@
 {
   "name": "flex.js-dev",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "flex.js",
   "main": "builder/index.js",
   "scripts": {

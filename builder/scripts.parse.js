@@ -4,10 +4,10 @@ const gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat');
 
-module.exports = ({ dest }) => gulp.src(['node_modules/flex.js-dev/core/js/**/*.js'])
+module.exports = () => gulp.src(['node_modules/flex.js-dev/core/js/**/*.js'])
     .pipe(wrap('(() => { <%= contents %> })();'))
     .pipe(concat(`site.js`))
     .pipe(wrap('window.flex = {}; (() => { <%= contents %> })();'))
     .pipe(babel())
     .pipe(uglify())
-    .pipe(gulp.dest(`${dest}/scripts`));
+    .pipe(gulp.dest(`dist/web/scripts`));

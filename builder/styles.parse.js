@@ -3,8 +3,8 @@ const gulp = require('gulp'),
     clean = require('gulp-clean-css'),
     sass = require('gulp-sass')(require('sass'));
 
-module.exports = ({ dest }) => gulp.src(['styles/**/*.scss'])
+module.exports = () => gulp.src(['styles/**/*.scss'])
     .pipe(sass())
     .pipe(concat(`main.css`))
     .pipe(clean())
-    .pipe(gulp.dest(`${dest}/styles`));
+    .pipe(gulp.dest(`dist/web/styles`));

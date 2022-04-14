@@ -1,8 +1,8 @@
 const copy = require('gently-copy');
 
-module.exports = ({ dest, next }) => {
+module.exports = ({ next }) => {
 
-    copy(['assets'], `${process.env.INIT_CWD}/dist`, {
+    copy(['assets'], `${process.env.INIT_CWD}/dist/web`, {
         overwrite: true
     });
 
