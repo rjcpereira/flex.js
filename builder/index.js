@@ -3,9 +3,11 @@ const fs = require('fs'),
     colors = require('colors/safe'),
     shell = require('child_process').exec;
 
-const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
+const pkg = JSON.parse(fs.readFileSync('../package.json', 'utf-8'));
 
-const log = (...args) => console.log(colors.green(`[${pkg.name}]`), ...args);
+const name = pkg.description;
+
+const log = (...args) => console.log(colors.green(`[${name}]`), ...args);
 
 const build = gulp.series(...[
     'styles.parse',
@@ -19,14 +21,11 @@ const build = gulp.series(...[
     'assets.copy'
 ].map(id => {
     const task = require(`./${id}`);
-    gulp.task(id, next => {
-        log(id);
-        return task({
-            log,
-            dest: 'dist',
-            next
-        });
-    });
+    gulp.task(id, next => task({
+        log,
+        dest: 'dist',
+        next
+    }));
     return id;
 }));
 
@@ -36,6 +35,8 @@ const start = async (next, dev) => await require(`./server.start`)({
     url: 'http://localhost:3000',
     dev
 });
+
+log(`building project with ${name} v${pkg.version}`);
 
 module.exports = {
     dev: async next => await build(() => start(next, true)),
