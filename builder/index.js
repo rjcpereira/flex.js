@@ -24,8 +24,7 @@ for (let key in renderer) options[key] = new Proxy(typeof renderer[key] !== 'obj
     },
     set(target, prop, value) {
         target[prop] = value;
-        typeof renderer[key] === 'function' && renderer[key](value);
-        console.log(colors.cyan(key), colors.yellow(prop), value)
+        !(typeof renderer[key] !== 'function') && renderer[key](value);
         return true;
     }
 });

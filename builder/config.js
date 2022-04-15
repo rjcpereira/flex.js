@@ -5,6 +5,7 @@ const build = {
         'views.parse',
         'layouts.parse',
         'routes.parse',
+        'processed.templates',
         'api.parse',
         'middlewares.parse',
         'server.parse',
