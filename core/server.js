@@ -1,9 +1,9 @@
-const express = require('express'),
-    colors = require('colors');
+const config = require('./config'),
+    express = require('express'),
+    colors = require('colors'),
+    server = express();
 
-const server = express();
-
-const port = 3000;
+console.log(colors.red(config));
 
 //const use = (req, res, next) => server.use(req, res, next);
 
@@ -11,12 +11,12 @@ server.get('/dev', (req, res) => res.send({
     id: 'flex.js'
 }));
 
-server.use(express.static('dist/web'));
+server.use(express.static(config.build.dest.web));
 
 const line = () => console.log('\n\r');
 
-server.listen(port, () => {
+server.listen(config.port, () => {
     line();
-    console.log(colors.green('[flex.js]'), colors.yellow(`http://localhost:${port}`));
+    console.log(colors.green('[flex.js]'), colors.yellow(config.base));
     line();
 });

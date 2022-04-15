@@ -11,7 +11,11 @@ const build = {
         'server.parse',
         'handlebars.copy',
         'assets.copy'
-    ]
+    ],
+    dest: {
+        server: 'dist',
+        web: 'dist/web'
+    }
 };
 
 const port = 3000;
@@ -42,5 +46,6 @@ module.exports = {
     build,
     base,
     nodemon,
-    gulp
+    gulp,
+    port
 };

@@ -3,4 +3,4 @@ const gulp = require('gulp'),
 
 module.exports = () => gulp.src(['node_modules/handlebars/dist/handlebars.runtime.min.js'])
     .pipe(rename('handlebars.js'))
-    .pipe(gulp.dest(`dist/web/scripts`));
+    .pipe(gulp.dest(`${config.build.dest.web}/scripts`));

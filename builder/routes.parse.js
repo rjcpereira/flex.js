@@ -38,7 +38,7 @@ module.exports = ({ next, layouts, compile }) => {
 
     const html = `<!DOCTYPE html><html><head></head><body>${body}</body></html>`;
 
-    fs.writeFileSync('dist/web/index.html', html);
+    fs.writeFileSync(`${config.build.dest.web}/index.html`, html);
 
     //folders('pages', (item, path) => console.log(item, path))
 

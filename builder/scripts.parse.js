@@ -10,4 +10,4 @@ module.exports = () => gulp.src(['node_modules/flex.js-dev/core/js/**/*.js'])
     .pipe(wrap('window.flex = {}; (() => { <%= contents %> })();'))
     .pipe(babel())
     .pipe(uglify())
-    .pipe(gulp.dest(`dist/web/scripts`));
+    .pipe(gulp.dest(`${config.build.dest.web}/scripts`));

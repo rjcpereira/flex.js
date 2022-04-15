@@ -1,6 +1,6 @@
 {
   "name": "flex.js-dev",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "description": "flex.js",
   "main": "builder/index.js",
   "scripts": {
@@ -25,7 +25,6 @@
   "dependencies": {
     "colors": "^1.4.0",
     "express": "^4.17.3",
-    "gently-copy": "^3.2.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.3.0",

@@ -7,4 +7,4 @@ module.exports = () => gulp.src(['styles/**/*.scss'])
     .pipe(sass())
     .pipe(concat(`main.css`))
     .pipe(clean())
-    .pipe(gulp.dest(`dist/web/styles`));
+    .pipe(gulp.dest(`${config.build.dest.web}/styles`));

@@ -14,7 +14,6 @@ const renderer = {
 };
 
 let options = {
-    dest: 'dist',
     compile: template => handlebars.compile(template)
 };
 

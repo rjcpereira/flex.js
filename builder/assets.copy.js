@@ -1,10 +1,10 @@
-const copy = require('gently-copy');
+const config = require('config');
+
+const shell = require('child_process').exec;
 
 module.exports = ({ next }) => {
 
-    copy(['assets'], `${process.env.INIT_CWD}/dist/web`, {
-        overwrite: true
-    });
+    shell(`cp -r assets ${process.env.INIT_CWD}/${config.build.dest.web}`);
 
     next();
 };
