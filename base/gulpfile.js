@@ -1,5 +1,5 @@
-const flex = require('flex.js-dev');
+const { dev, start, build } = require('flex.js-dev');
 
-exports.dev = flex.dev;
-exports.start = flex.start;
-exports.default = flex.build;
+exports.dev = dev;
+exports.start = start;
+exports.default = build;

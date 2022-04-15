@@ -1,4 +1,4 @@
-const { folders, routify } = require('./utils');
+const { folders, routify, prepare } = require('./utils');
 
 module.exports = ({ next, views }) => {
 
@@ -7,7 +7,7 @@ module.exports = ({ next, views }) => {
         if(key) views[key] = {
             key,
             path,
-            file
+            view: prepare(file)
         };
     }, true);
 

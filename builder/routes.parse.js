@@ -1,20 +1,22 @@
-const fs = require('fs');
+const config = require('./config'),
+    fs = require('fs');
+
 const { log, folders } = require('./utils');
 
 module.exports = ({ next, layouts, compile }) => {
 
     log('layouts', layouts);
 
-    const render = compile(layouts.base.file);
+    const render = compile(layouts.base.view);
 
     const main = {
         '@route': {
             path: '',
             params: {}
         },
-        '@url': 'http://localhost:3000'
+        '@url': config.base
     };
-    
+
     const body = render({
         ...main,
         title: 'Title',
@@ -37,7 +39,7 @@ module.exports = ({ next, layouts, compile }) => {
     });
 
     const html = `<!DOCTYPE html><html><head></head><body>${body}</body></html>`;
-    
+
     fs.writeFileSync('dist/web/index.html', html);
 
     //folders('pages', (item, path) => console.log(item, path))

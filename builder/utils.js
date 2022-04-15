@@ -49,11 +49,17 @@ const watching = next => {
     return (next && next());
 };
 
+const prepare = html => !html ? '' : html
+    .replace(/\r/g, ' ')
+    .replace(/\n/g, ' ')
+    .replace(/ {2,}/g, ' ');
+
 module.exports = {
     log,
     folders,
     routify,
     line,
     watching,
+    prepare,
     pkg
 }

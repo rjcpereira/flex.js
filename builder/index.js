@@ -1,13 +1,14 @@
 const nodemon = require('nodemon'),
     handlebars = require('handlebars'),
     gulp = require('gulp'),
+    config = require('./config'),
     colors = require('colors/safe'),
     shell = require('child_process').exec;
 
 const { log, pkg } = require('./utils');
 
 const renderer = {
-    views: value => handlebars.registerPartial(value.key, value.file),
+    views: value => handlebars.registerPartial(value.key, value.view),
     helper: (key, next) => handlebars.registerHelper(key, next),
     layouts: {}
 };
@@ -17,7 +18,7 @@ let options = {
     compile: template => handlebars.compile(template)
 };
 
-for(let key in renderer) options[key] = new Proxy(typeof renderer[key] !== 'object' ? {} : renderer[key], {
+for (let key in renderer) options[key] = new Proxy(typeof renderer[key] !== 'object' ? {} : renderer[key], {
     get(target, prop) {
         return target[prop];
     },
@@ -29,32 +30,12 @@ for(let key in renderer) options[key] = new Proxy(typeof renderer[key] !== 'obje
     }
 });
 
-const build = gulp.series(...[
-    'styles.parse',
-    'scripts.parse',
-    'views.parse',
-    'layouts.parse',
-    'routes.parse',
-    'api.parse',
-    'middlewares.parse',
-    'server.parse',
-    'handlebars.copy',
-    'assets.copy'
-].map(id => {
-    const task = require(`./${id}`);
-    gulp.task(id, next => task({
-        ...options,
-        next
-    }));
-    return id;
-}));
-
 const line = () => console.log('\n\r'),
     listening = dev => {
         line();
         log(`starting server in '${colors.cyan(!dev ? 'production' : 'development')}' mode`);
         line();
-        log(colors.yellow('http://localhost:3000'));
+        log(colors.yellow(config.base));
         line();
     },
     watching = next => {
@@ -62,46 +43,39 @@ const line = () => console.log('\n\r'),
         log('watching files for changes...');
         line();
         return (next && next());
-    };
+    },
+    build = gulp.series(...config.build.tasks.map(id => {
+        const task = require(`./${id}`);
+        gulp.task(id, next => task({
+            ...options,
+            next
+        }));
+        return id;
+    })),
+    start = async next => {
 
-const start = async next => {
+        listening();
 
-    listening();
-
-    shell(`node dist/server`, err => {
-        line();
-        log(colors.red('ERROR'), err);
-        line();
-        next();
-    });
-};
+        shell(`node dist/server`, err => {
+            line();
+            log(colors.red('ERROR'), err);
+            line();
+            next();
+        });
+    },
+    watch = async () => {
+        gulp.series(build, watching, () => nodemon(config.nodemon))();
+        return gulp.watch(config.gulp.watch, gulp.series(build, watching));
+    };;
 
 line();
 log(`building project with ${pkg.description} v${pkg.version}`);
 line();
 
-const watch = async () => {
-    gulp.series(build, watching, () => nodemon({
-        script: `./dist/server.js`,
-        ext: 'js',
-        env: {
-            NODE_ENV: 'development',
-            PORT: 3000
-        },
-        ignore: ['./node_modules/**'],
-        delay: 2
-    }))();
-    return gulp.watch([
-        'layouts/**/*',
-        'pages/**/*',
-        'styles/**/*',
-        'views/**/*'
-    ], gulp.series(build, watching));
-};
-
 module.exports = {
     start,
     build,
     watch,
-    dev: watch
+    dev: watch,
+    options
 };
