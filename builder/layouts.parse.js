@@ -1,10 +1,10 @@
 const { folders, routify } = require('./utils');
 
-module.exports = ({ next, views }) => {
+module.exports = ({ next, layouts }) => {
 
-    folders('views', (item, path, file) => {
-        const key = routify('views', item, path);
-        if(key) views[key] = {
+    folders('layouts', (item, path, file) => {
+        const key = routify('layouts', item, path);
+        if(key) layouts[key] = {
             key,
             path,
             file

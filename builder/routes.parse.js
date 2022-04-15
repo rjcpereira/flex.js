@@ -1,4 +1,17 @@
-const fs = require('fs'),
-shell = require('child_process').exec;
+const { log, folders } = require('./utils');
 
-module.exports = ({ next }) => shell(`handlebars layouts/base.hbs -f ./dist/web/scripts/templates.js`, next);
+module.exports = ({ next, layouts, compile }) => {
+
+    log('layouts', layouts);
+
+    const render = compile(layouts.base.file);
+
+    console.log(render({
+        title: 'Title',
+        description: 'Description'
+    }))
+    
+    //folders('pages', (item, path) => console.log(item, path))
+
+    next();
+};
