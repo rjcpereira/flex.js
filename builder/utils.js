@@ -1,6 +1,6 @@
 const path = require('path'),
     fs = require('fs'),
-    colors = require('colors/safe');
+    colors = require('colors');
 
 const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json'), 'utf-8'));
 

@@ -1,11 +1,9 @@
 const config = require('./config'),
     fs = require('fs');
 
-const { log, folders } = require('./utils');
+/* const { log, folders } = require('./utils'); */
 
 module.exports = ({ next, layouts, compile }) => {
-
-    log('layouts', layouts);
 
     const render = compile(layouts.base.view);
 

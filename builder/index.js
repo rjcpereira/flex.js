@@ -2,7 +2,7 @@ const nodemon = require('nodemon'),
     handlebars = require('handlebars'),
     gulp = require('gulp'),
     config = require('./config'),
-    colors = require('colors/safe'),
+    colors = require('colors'),
     shell = require('child_process').exec;
 
 const { log, pkg } = require('./utils');
@@ -34,8 +34,6 @@ const line = () => console.log('\n\r'),
     listening = dev => {
         line();
         log(`starting server in '${colors.cyan(!dev ? 'production' : 'development')}' mode`);
-        line();
-        log(colors.yellow(config.base));
         line();
     },
     watching = next => {
