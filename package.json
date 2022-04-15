@@ -1,17 +1,17 @@
 {
-  "name": "flex.js-dev",
+  "name": "flex-kit",
   "version": "0.0.26",
-  "description": "flex.js",
+  "description": "flex-kit",
   "main": "builder/index.js",
   "scripts": {
     "postinstall": "node postinstall"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rjcpereira/flex.js.git"
+    "url": "git+https://github.com/rjcpereira/flex-kit.git"
   },
   "keywords": [
-    "flex.js"
+    "flex-kit"
   ],
   "author": {
     "name": "rjcpereira",
@@ -19,9 +19,9 @@
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rjcpereira/flex.js/issues"
+    "url": "https://github.com/rjcpereira/flex-kit/issues"
   },
-  "homepage": "https://github.com/rjcpereira/flex.js#readme",
+  "homepage": "https://github.com/rjcpereira/flex-kit#readme",
   "dependencies": {
     "colors": "^1.4.0",
     "express": "^4.17.3",

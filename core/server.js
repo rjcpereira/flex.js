@@ -1,4 +1,4 @@
-const config = require('flex.js-dev/builder/config'),
+const config = require('flex-kit/builder/config'),
     express = require('express'),
     colors = require('colors'),
     server = express();

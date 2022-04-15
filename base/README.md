@@ -1,4 +1,4 @@
-# flex.js
+# flex-kit
 
 ## Run in development mode
 

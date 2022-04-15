@@ -1,4 +1,4 @@
-const { dev, start, build } = require('flex.js-dev');
+const { dev, start, build } = require('flex-kit');
 
 exports.dev = dev;
 exports.start = start;

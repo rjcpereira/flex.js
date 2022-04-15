@@ -5,7 +5,7 @@ const config = require('./config'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat');
 
-module.exports = () => gulp.src(['node_modules/flex.js-dev/core/js/**/*.js'])
+module.exports = () => gulp.src(['node_modules/flex-kit/core/js/**/*.js'])
     .pipe(wrap('(() => { <%= contents %> })();'))
     .pipe(concat(`site.js`))
     .pipe(wrap('window.flex = {}; (() => { <%= contents %> })();'))
