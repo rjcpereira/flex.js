@@ -1,4 +1,5 @@
-const gulp = require('gulp'),
+const config = require('./config'),
+    gulp = require('gulp'),
     babel = require('gulp-babel'),
     wrap = require('gulp-wrap'),
     uglify = require('gulp-uglify'),

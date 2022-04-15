@@ -1,10 +1,8 @@
-const path = require('path'),
+const config = require('./config'),
     fs = require('fs'),
     colors = require('colors');
 
-const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json'), 'utf-8'));
-
-const log = (...args) => console.log(colors.green(`[${pkg.description}]`), ...args);
+const log = (...args) => console.log(colors.green(`[${config.pkg.description}]`), ...args);
 
 const folders = (value, next, get) => {
     let res = {};
@@ -60,6 +58,5 @@ module.exports = {
     routify,
     line,
     watching,
-    prepare,
-    pkg
+    prepare
 }

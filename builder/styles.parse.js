@@ -1,4 +1,5 @@
-const gulp = require('gulp'),
+const config = require('./config'),
+    gulp = require('gulp'),
     concat = require('gulp-concat'),
     clean = require('gulp-clean-css'),
     sass = require('gulp-sass')(require('sass'));

@@ -5,7 +5,7 @@ const nodemon = require('nodemon'),
     colors = require('colors'),
     shell = require('child_process').exec;
 
-const { log, pkg } = require('./utils');
+const { log } = require('./utils');
 
 const renderer = {
     views: value => handlebars.registerPartial(value.key, value.view),
@@ -65,7 +65,7 @@ const line = () => console.log('\n\r'),
     };;
 
 line();
-log(`building project with ${pkg.description} v${pkg.version}`);
+log(`building project with ${config.pkg.description} v${config.pkg.version}`);
 line();
 
 module.exports = {

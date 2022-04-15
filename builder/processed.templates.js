@@ -1,6 +1,6 @@
 const colors = require('colors');
 
-const { log, line, pkg } = require('./utils');
+const { log, line } = require('./utils');
 
 module.exports = ({ next, ...params }) => {
 

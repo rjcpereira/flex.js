@@ -1,3 +1,8 @@
+const path = require('path'),
+    fs = require('fs');
+
+const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json'), 'utf-8'));
+
 const build = {
     tasks: [
         'styles.parse',
@@ -47,5 +52,6 @@ module.exports = {
     base,
     nodemon,
     gulp,
-    port
+    port,
+    pkg
 };

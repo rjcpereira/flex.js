@@ -1,4 +1,5 @@
-const gulp = require('gulp'),
+const config = require('./config'),
+    gulp = require('gulp'),
     rename = require('gulp-rename');
 
 module.exports = () => gulp.src(['node_modules/handlebars/dist/handlebars.runtime.min.js'])
